@@ -1,0 +1,68 @@
+
+<div class="container" >
+	<h2>Tweets by Location</h2>
+
+	<div class="row"  >
+		<form role="form" ng-submit="loadTweets()">
+			<div class="form-group">
+		  <fieldset>
+		    <label>Select Location/Tweets</label>
+			
+			<select id="city" name="city"  class="form-control" ng-model="city" ng-show="viewType == 'global'" >
+			  <option value="All">All (last 100 tweets)</option>
+			  <option>Dublin</option>
+			  <option>London</option>
+			  <option>Paris</option>
+			  <option>New York</option>
+			  <option>San Francisco</option>
+			  <option>Los Angeles</option>
+			  <option>Rio</option>
+			  <option>Buenos Aires</option>
+			  <option>Sidney</option>
+			  <option>Tokyo</option>
+			</select>
+			
+			<select id="distance" name="distance" class="form-control" ng-model="distance" >
+			  <option value="10" >10 km</option>
+			  <option value="50" >50 km</option>
+			  <option value="100" >100 km</option>
+			  <option value="200" >200 km</option>
+			  <option value="500" >500 km</option>
+			  <option value="1000" >1000 km</option>
+			  <option value="2000" >2000 km</option>
+			  <option value="5000" >5000 km</option>
+			  <option value="50000" >All</option>
+			</select>
+			<button type="submit" class="btn" >Submit</button>
+		  </fieldset>
+	  </div>
+		</form>
+	</div>
+
+<div>
+
+<google-map center='map.center' zoom='map.zoom' draggable="true"
+         dragging="map.dragging"
+         bounds="map.bounds"
+         events="map.events"
+         options="map.options">
+
+<marker ng-repeat="m in map.markers" coords="m" icon="m.icon" click="onMarkerClicked(m)">
+    <marker-label content="m.title" anchor="22 0" class="marker-labels"/>
+</marker>
+
+
+
+</google-map>
+</div>
+
+<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+
+Distance : {{distance}}
+<br>
+City : {{city}}
+
+
+</div>
+
+

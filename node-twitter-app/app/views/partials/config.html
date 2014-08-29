@@ -1,0 +1,25 @@
+<div class="container" >
+
+  	<div class="row voffset3">
+		<div class="panel panel-default">
+
+		    <div class="panel-heading">Configuration</div>
+		    <div class="panel-body"  >
+			<form role="form panel">
+	
+				<div class="row">
+				  <div class="col-md-4">Label</div>
+				  <div class="col-md-4">Value</div>
+				</div>
+	
+				<div ng-repeat="brand in brandList" class="row">
+  				  <div class="col-md-4"> <input type="text" ng-model="brand.label"></div>
+  				  <div class="col-md-4"><input type="text" ng-model="brand.value"></div>
+ 			  </div>
+
+			</form>
+		    </div>
+		</div>
+ 	</div>
+
+</div>

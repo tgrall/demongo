@@ -1,0 +1,16 @@
+
+<div class="container">
+	<div class="jumbotron">
+	  <h2>Top 100 tags</h2>
+
+	</div>
+	<div>
+    <span class="masonry-brickXX" ng-repeat="tag in tags" >
+	    <a class="btn btn-primary btn" style="margin: 3px;" href="/tweets/tags/{{ tag.tag }}" >{{ tag.tag }} ({{ tag.count }})</a> 
+    </span>
+	</div>
+
+
+	<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+</div>
+

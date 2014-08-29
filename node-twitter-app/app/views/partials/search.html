@@ -1,0 +1,37 @@
+<div class="container" >
+
+  <h1>Tweets List</h1>
+
+
+<div class="row ">
+	
+	
+  <table class="table table-striped">
+	  <thead>
+	  <tr>
+  	  	<th>User</th>
+	  	<th>Text</th>
+	  	<th>Date</th>
+      </tr>
+  </thead>
+	
+	  <tbody class="">
+
+
+  		  <tr ng-repeat="result in results">
+			  <td> <img ng-src="{{ result.obj.user.profile_image_url }}" class="img-circle"  />  {{result.obj.user.screen_name}}</td>
+		  	<td><a href="/tweets/{{result.obj.id}} ">  {{result.obj.text}} </a> </td>
+		  	<td>{{result.obj.created_at | date:'medium' }}</td>
+		  </tr>
+	  </tbody>
+
+
+</table>
+
+</div>
+
+
+<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+
+
+</div>

@@ -1,0 +1,60 @@
+<div class="container" >
+
+
+	<div >
+		<h3>Number of Tweets by Time (seconds)</h3>
+		
+		
+	    <nvd3-line-chart
+	            data="chartData"
+	            id="exampleId"
+	            width="800"
+	            height="400"
+	            showXAxis="true"
+	            showYAxis="true"
+	            tooltips="true"
+	            interactive="true"
+	            xAxisTickFormat="xAxisTickFormatFunction()"
+	            margin="{left:75,top:20,bottom:20,right:5}"
+	            yAxisLabel="Number of Tweets"
+	            xAxisLabel="Time"
+	            isArea="true"
+	            color="colorFunction()"
+				
+	            >
+	        <svg></svg>
+	    </nvd3-line-chart>
+
+
+		<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+	</div>
+
+
+	
+	<div>
+		<h3>Top 20 tweetos</h3>
+
+	    <table class="table table-striped">
+	  	  <thead>
+	  	  <tr>
+	    	<th>User</th>
+	  	  	<th>Text</th>
+		</tr>
+	    </thead>
+	
+	  	  <tbody class="">
+
+	    		  <tr ng-repeat="user in users">
+  	    		  	<td><a href="/tweets/user/{{user.screen_name}}">{{user.screen_name}}</a></td>
+	    		  	<td>{{user.count}}</td>
+	  		  </tr>
+	  	  </tbody>
+
+
+	  </table>
+
+
+	</div>
+
+
+</div>

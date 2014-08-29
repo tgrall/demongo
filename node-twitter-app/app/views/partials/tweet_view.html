@@ -1,0 +1,80 @@
+<div class="container" >
+
+	<h1>View Tweet</h1>
+  	<div class="container">
+    	<div class="row">
+  			<div class="span6">
+  				<h2> <img src="{{tweet.user.profile_image_url_https}}"/> By {{tweet.user.name}}</h2>
+  			</div>
+  	 	</div>
+      
+	  	<div class="row spacer3">
+  			<div class="col-md-12">
+  				<h3>{{tweet.text}}</h3>
+			</div>
+		</div>
+
+
+		<div class="row voffset2"  ng-show="tweet.entities.hashtags" >
+    		<div class="col-md-12">
+				Tags : 
+				<span ng-repeat="tag in tweet.entities.hashtags">
+			    	<a class="btn btn-primary btn-xs" href="/tweets/tags/{{ tag.text }}">{{ tag.text }}</a> 
+				</span>
+			</div>
+		</div>
+
+		<div class="row voffset2" ng-show="tweet.coordinates">
+    		<div class="col-md-12">
+				<a href="/map/{{tweet.id}}">Show on map</a>
+			</div>
+		</div>
+		
+		<div class="row voffset2">
+    		<div class="col-md-12">
+			  	<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+			</div>
+		</div>
+		
+		
+  	  </div>
+
+    	<div class="row voffset3">
+  		<div class="panel panel-default">
+  		    <div class="panel-heading"><a ng-click="showMedia = !showMedia" >Show Images</a></div>
+  		    <div class="panel-body" ng-show="showMedia" >
+				<span ng-repeat="media in tweet.entities.media">
+					<img ng-src="{{media.media_url}}" width="{{media.sizes.thumb.w}}"  />
+				</span>
+  		    </div>
+  		</div>
+   	</div>
+
+	  
+  	<div class="row voffset3">
+		<div class="panel panel-default">
+
+		    <div class="panel-heading"><a ng-click="showAddCustomForm = !showAddCustomForm" >Add Custom Information</a></div>
+		    <div class="panel-body" ng-show="showAddCustomForm" >
+			<form role="form panel">
+			  <input type="hidden" ng-model="tweet.id"  id="id" name="id"  />
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Comments</label>
+				<textarea class="form-control" rows="3" id="meta.comments" name="meta.comments" ng-model="tweet.meta.comments" placeholder="Comments"></textarea>
+			  </div>
+			  <div class="checkbox">
+			    <label>
+			      <input type="checkbox" id="meta.nsfw" name="meta.nsfw" ng-model="tweet.meta.nsfw"> NSFW !
+			    </label>
+			  </div>
+			  <button ng-click="saveMeta(tweet.id, tweet.meta)" class="btn btn-default">Submit</button>
+			</form>
+		    </div>
+		</div>
+ 	</div>
+
+
+  </div>
+
+
+

@@ -1,0 +1,22 @@
+
+
+<div class="container">
+
+	<div class="row">
+	<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+	</div>
+
+	<div class="row">
+	<div masonry>
+	    <div class="masonry-brick" ng-repeat="brick in bricks">
+			<a href="/tweets/{{ brick.tweet }}">
+	        <img ng-src="{{ brick.url }}" alt="A masonry brick" width="150" class="img-rounded img-thumbnail" />
+			</a>
+	    </div>
+	</div>
+</div>
+
+
+
+</div>
+

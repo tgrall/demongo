@@ -1,0 +1,6 @@
+nltk
+sentiment_classifier
+pymongo
+tweepy
+python-dateutil
+

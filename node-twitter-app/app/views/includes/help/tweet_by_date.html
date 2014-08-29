@@ -1,0 +1,10 @@
+<p>
+	To calculate stats, for example numbers of tweets by seconds it a simple <em>aggregate</em> query, with a <em>group</em>. The aggregate pipe is divided in 2 main phases:
+	<ol>
+		<li>Do a projection that emit the date fo creation of the tweet '<em>created_at</em>' in various fields (year, month, day, hour, mn, sec)</li>
+		<li>Do a group on this date and count the number of tweet (<em>{'$sum':1}</em>)</li>
+	</ol>
+	
+	Note: this query is nice to show the type of things that could be done with the Aggregation Framework, but it is more efficient to take another approach when dealing with such aggregation, take a look to the <a href="http://docs.mongodb.org/ecosystem/use-cases/pre-aggregated-reports/" _target="help">Pre-Aggregated Reports</a> use case in MongoDB Documentation.
+	
+</p>

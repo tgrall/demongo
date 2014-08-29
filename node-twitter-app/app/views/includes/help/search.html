@@ -1,0 +1,19 @@
+<p>
+MongoDB supports Full Text Search.
+</p>
+
+<p>
+For this you need to:
+
+<ol>
+	<li>Enable Full Text Feature : <pre>mongod --setParameter textSearchEnabled=true</pre></li>
+	<li>Create a Text index : <pre>db.messages.ensureIndex( {'text':'text'})</pre> In this case on the field 'text' of the 'messages' collection</li>
+</ol>
+More information in the <a href="http://docs.mongodb.org/manual/core/index-text/" target="_help">documentation</a>.
+</p>
+
+<hr/>
+<p>
+	Using MongoDB Full Text search you can use many operators to search specific messages, 
+	more information in the <a href="http://docs.mongodb.org/manual/tutorial/search-for-text/" target="_help">documentation</a>.
+</p>

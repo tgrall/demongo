@@ -1,0 +1,31 @@
+<p>
+MongoDB supports GeoSpatial query
+</p>
+<p>
+	The tweets that are inserted contain (in some case) the location of the tweet. This location is used to locate the tweet on the map and do some queries.
+</p>
+
+
+<p>
+For this you need to:
+<ul>
+	<li>Create a Geo index : <pre>db.messages.ensureIndex( {'coordinates.coordinates':'2d'})</pre> The field coordinates is a GeoJSON object, and the index is created on the coordinates directly (Work around the <a href="https://jira.mongodb.org/browse/SERVER-9639" target="_blank">SERVER-9639</a> issue)</li>
+</ul>
+
+Now that you have the index you can do some queries.<br/>
+
+The first query that show tweets on the map does not use the Geo spatial query but simply grab some of them (check the geo attribute.)
+
+<br>
+When the user selects the city and distance then a Geo Spatial query is sent to the server:
+<ol>
+	<li>'find()' call to the collection</li>
+	<li>use a filter that is based on the field/index , in this case 'coordinates.coordinates'</li>
+	<li>...</li>
+</ol>
+db.messages.find({"coordinates.coordinates":{"$geoWithin":{"$centerSphere":[[0.616259584375034,51.66479725867367],0.007848061528802385]}}})
+
+
+
+</p>
+

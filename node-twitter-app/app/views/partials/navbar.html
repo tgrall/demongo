@@ -1,0 +1,59 @@
+<!-- div class="header" ng-controller="NavbarCtrl">
+  <ul class="nav nav-pills pull-right">
+    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+        <a ng-href="{{item.link}}">{{item.title}}</a>
+    </li>
+  </ul>
+  <h3 class="text-muted">dash</h3>
+</div-->
+
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="./" class="navbar-brand">Demongo</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="./tweets">Wall</a>
+        </li>
+        <li>
+          <a href="./tweets/tags">Tags</a>
+        </li>
+        <li>
+          <a href="./media_viewer">Images</a>
+        </li> 
+		<li>
+          <a href="./map">Map</a>
+        </li>
+        <li>
+          <a href="./sentiment">Sentiments</a>
+        </li>
+		<li>
+      		<a href="./stats">Stats</a>
+    	</li>
+
+      </ul>
+	  
+      <form class="navbar-form navbar-right" role="search" action="/search" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q">
+        </div>
+      </form>
+	  
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="./config">Config</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

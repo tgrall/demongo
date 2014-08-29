@@ -1,0 +1,60 @@
+<div class="container" >
+
+<div class="row ">
+  <h1>
+	  Tweets 
+	  	<span ng-show="viewType == 'tag'">for tag "{{tag}}"</span>
+		<span ng-show="viewType == 'user'">for user "{{screen_name}}"</span>
+   </h1>
+</div>
+
+<div class="row ">
+	
+  <h5 ng-show="viewType == 'list'">Tweet counter : {{count.nb_tweets}}</h5>
+  
+	
+  <table class="table table-striped">
+	  <thead>
+	  <tr>
+  	  	<th>User</th>
+	  	<th>Text</th>
+	  	<th>Date</th>
+		<th>&nbsp;</th>
+      </tr>
+  </thead>
+	
+	  <tbody class="">
+
+		  <tr ng-hide="tag">
+	  		  <td colspan='4'>
+				<p class="text-center">
+					<button class="btn btn-primary" ng-click="refreshTweets()">Refresh</button>
+				</p>
+				</td>
+		  </tr>
+
+  		  <tr ng-repeat="tweet in tweets">
+  		  	<td> <img ng-src="{{ tweet.user.profile_image_url }}" class="img-circle"  />  {{tweet.user.screen_name}}</td>
+		  	<td><a href="/tweets/{{tweet.id}} ">  {{tweet.text}} </a> </td>
+		  	<td>{{tweet.created_at | date:'medium' }}</td>
+			<td>
+				<a ng-show="tweet.coordinates" type="button" class="btn btn-default btn-xs" href="/map/{{tweet.id}}">
+				  <span   class="glyphicon glyphicon-globe"></span>
+				</a>
+				<a ng-show="tweet.entities.media" type="button" class="btn btn-default btn-xs" href="/tweets/{{tweet.id}}">
+				  <span   class="glyphicon glyphicon-camera"></span>
+				</a>
+			</td>
+		  </tr>
+	  </tbody>
+
+
+</table>
+
+</div>
+
+
+<div ng-show="query" class="slide-animate" ng-include="'/views/includes/query.html'"></div>
+
+
+</div>

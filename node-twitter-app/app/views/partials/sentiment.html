@@ -1,0 +1,43 @@
+<div class="container" >
+
+
+	<div class="row"  >
+
+     <button-group
+        states="brandList" 
+        state="selectedBrand"
+        on-state-change="onStatusChange">
+      </button-group>
+
+      <button-group
+         states="timeRangeList" 
+         state="selectedTimeRange"
+         on-state-change="onStatusChange">
+       </button-group>
+   	</div>
+	
+	<div class="row"  >
+		From {{range.start}} to {{range.end}} for {{selectedBrand.label}}
+   	</div>
+	
+
+<nvd3-line-chart
+        data="chartData"
+        id="exampleId"
+        width="800"
+        height="400"
+        showXAxis="true"
+        showYAxis="true"
+        tooltips="true"
+        interactive="true"
+        margin="{left:75,top:20,bottom:20,right:5}"
+        yAxisLabel="Sentiments"
+        xAxisLabel="Time"
+        isArea="true"
+        color="colorFunction()"
+		interpolate="basis"
+			>
+    <svg></svg>
+</nvd3-line-chart>
+
+</div>
